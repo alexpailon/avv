@@ -3,11 +3,8 @@ name: Automated Browser Cycle
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/15 * * * *"
+    - cron: "*/10 * * * *"
 
-concurrency:
-  group: automated-browser-cycle
-  cancel-in-progress: false
 
 jobs:
   run-automation:
