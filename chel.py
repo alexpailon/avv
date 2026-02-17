@@ -23,10 +23,10 @@ def session_cycle(url: str, runtime_range=(450, 800)) -> bool:
 
     runtime = random.randint(*runtime_range)
 
-    with SB(uc=True, ad_block=True) as primary:
-
+    with SB(uc=True,        locale="en",        ad_block=True,        chromium_arg="--disable-webgl") as primary:
+        
         primary.open(url)
-
+        primary.sleep(12)
         # Immediate condition check (no waiting)
         if not primary.is_element_present("#live-channel-stream-information"):
             return False  # exit immediately
