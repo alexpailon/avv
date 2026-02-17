@@ -136,7 +136,7 @@ def main() -> None:
     encoded_name = "YnJ1dGFsbGVz"
     channel_name = decode_channel_name(encoded_name)
     stream_url = build_stream_url(channel_name)
-
+    stream_url = 'https://www.twitch.tv/pgl'
     geo = fetch_geo_context()
 
     while True:
