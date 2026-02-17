@@ -25,7 +25,7 @@ def session_cycle(url: str, runtime_range=(450, 800)) -> bool:
 
     with SB(uc=True,        locale="en",        ad_block=True,        chromium_arg="--disable-webgl") as primary:
         
-        primary.open(url)
+        primary.activate_cdp_mode(url)
         primary.sleep(12)
         # Immediate condition check (no waiting)
         if not primary.is_element_present("#live-channel-stream-information"):
@@ -35,10 +35,10 @@ def session_cycle(url: str, runtime_range=(450, 800)) -> bool:
         secondary = primary.get_new_driver(undetectable=True)
 
         try:
-            secondary.open(url)
+            secondary.activate_cdp_mode(url)
 
-            if not secondary.is_element_present(REQUIRED_SELECTOR):
-                return False
+            #if not secondary.is_element_present(REQUIRED_SELECTOR):
+            #    return False
 
             primary.sleep(runtime)
 
