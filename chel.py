@@ -28,7 +28,7 @@ def session_cycle(url: str, runtime_range=(450, 800)) -> bool:
         primary.open(url)
 
         # Immediate condition check (no waiting)
-        if not primary.is_element_present(REQUIRED_SELECTOR):
+        if not primary.is_element_present("#live-channel-stream-information"):
             return False  # exit immediately
 
         # Spawn secondary driver
